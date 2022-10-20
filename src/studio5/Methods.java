@@ -16,7 +16,10 @@ public class Methods {
 	public static double distanceBetween(double x1, double y1, double x2, double y2) {
 		double distance = 0;
 		// FIXME: Hint use Math methods (e.g. Math.sqrt) to compute the distance
-		
+		double x = (x2-x1)*(x2-x1);
+		double y = (y2-y1)*(y2-y1);
+		double distanceForm = Math.sqrt(x+y);
+		distance = distanceForm;
 		return distance;
 	}
 
@@ -35,16 +38,20 @@ public class Methods {
 		// Blue ring with 3.0/4.0 the radius
 		// suggested rgb values: 0, 109, 219
 
-		
+		StdDraw.setPenColor(0, 109, 219);
+		StdDraw.filledCircle(x, y, 3.0*radius/4.0);
 
 		// Red ring with 1.0/2.0 the radius
 		// suggested rgb values: 146, 0, 0
 
-		
+		StdDraw.setPenColor(146, 0, 0);
+		StdDraw.filledCircle(x, y, radius/2.0);
 
 		// Yellow ring with 1.0/4.0 the radius
 		// suggested rgb values: 255, 255, 109
-
+			
+		StdDraw.setPenColor(255, 255, 109);
+		StdDraw.filledCircle(x, y, radius/4.0);
 		
 	}
 
@@ -62,7 +69,13 @@ public class Methods {
 	public static String substituteAll(String source, char target, String replacement) {
 		String result = "";
 		// TODO: Finish this method
-		
+		for (int i=0; i<source.length(); i++) {
+			if (source.charAt(i) == target) {
+				result = result + replacement;
+			} else {
+				result = result + source.charAt(i);
+			}
+		}
 		return result;
 	}
 
